@@ -35,10 +35,17 @@ export class Home extends React.Component {
         this.setState({loadingGeoLocation: false});
         console.log(error);
     }
+
+    getGalleryPanelContent = () => {
+        if (this.state.loadingGeoLocation) {
+            return <Spin tip="loading geolocation..."/>
+        }
+    }
+
     render() {
         return (
                 <Tabs tabBarExtraContent={operations} className="main-tabs">
-                    <TabPane tab="Tab 1" key="1">{this.state.loadingGeoLocation ? <Spin tip="loading geolocation..."/> : null}</TabPane>
+                    <TabPane tab="Tab 1" key="1">{this.getGalleryPanelContent()}</TabPane>
                     <TabPane tab="Tab 2" key="2">Content of tab 2</TabPane>
                 </Tabs>
         );
