@@ -21,7 +21,7 @@ class NormalLoginForm extends React.Component {
                         password: values.password,
                     })
                 }).then((response) => {
-                    message.success(response);
+                    message.success("Log in successful");
                     this.props.handleLogin(response);
                 }, (error) => {
                     message.error(error.responseText);
